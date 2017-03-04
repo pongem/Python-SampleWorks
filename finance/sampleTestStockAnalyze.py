@@ -1,8 +1,18 @@
 import pandas as pd
 
+import matplotlib.pyplot as plt
+
+def get_max_close(symbol):
+	df = pd.read_csv("data/%s.csv" % (symbol))
+	return df['Close'].max()
+
+
+
 def test_run():
-	df = pd.read_csv("cpf_data.csv")
-	print (df[10:21]) #rows between index 10 and 20
+	df = pd.read_csv("data/CPF.csv")
+	print (df['Close'])
+	df[['Close','Low','High']].plot()
+	plt.show()
 
 
 
