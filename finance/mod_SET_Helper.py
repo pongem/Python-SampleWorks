@@ -1,7 +1,7 @@
 
-from urllib.request import urlopen
+from urllib2 import urlopen 
 from decimal import Decimal
-from bs4 import BeautifulSoup
+from BeautifulSoup import BeautifulSoup
 
 from datetime import datetime
 
@@ -39,7 +39,7 @@ class SETFetch:
 
     def fetchSet100(self):
         page = urlopen(self.set100_url)
-        soup = BeautifulSoup(page, "html.parser")
+        soup = BeautifulSoup(page )
 
         stocks = soup.findAll("a", {"class": "link-stt"})
 
@@ -58,7 +58,7 @@ class SETFetch:
         while True:
             #print ( self.set_stockdata_url % (symbol, cur_pos * 15) )
             page = urlopen( self.set_stockdata_url % (symbol, cur_pos * 15))
-            soup = BeautifulSoup(page, "html.parser")
+            soup = BeautifulSoup(page)
 
             # need code this change if settrade change to display data more than 15
             # get content body

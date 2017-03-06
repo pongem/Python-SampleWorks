@@ -25,7 +25,7 @@ if __name__ == '__main__':
             records = SETFetchObj.fetchDataStock(stock)
 
             # open csv for write
-            outputFile = open('./data/%s.csv' % stock, 'w', newline='')
+            outputFile = open('./data/%s.csv' % stock, 'w')
             outputWriter = csv.writer(outputFile)
 
             # header
